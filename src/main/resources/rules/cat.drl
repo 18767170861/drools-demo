@@ -1,0 +1,17 @@
+package org.wmc.droolsdemo
+import org.wmc.droolsdemo.entity.People
+import org.wmc.droolsdemo.entity.Cat
+dialect  "java"
+
+rule "man1"
+    when
+        $p:People(sex == 1 && drlType == "people")
+    then
+        System.out.println($p.getName() + "是男孩");
+end
+rule "cat"
+    when
+        $c:Cat(sex == 1 && $c.getName().equals("金"))
+    then
+        System.out.println($c.getName() + "是公的");
+end
